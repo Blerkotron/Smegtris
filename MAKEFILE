@@ -1,0 +1,18 @@
+MODEL	= /AS
+INC	= /I..
+OPT	= /Ot /Ol /Og /Oc /Op /Oe /Oi /W3 /F 4000
+OBJS	= smegtris.obj
+SRCS	= smegtris.c
+LIB	= e:\msc\lib\graphics.lib
+
+all	: smegtris.exe
+
+smegtris.lnk: makefile
+	mkresp -o $@ $(OBJS)
+	mkresp -a $@ $(LIB)
+
+smegtris.exe: $(OBJS) $(LIB) smegtris.lnk
+	$(CC) $(LDFLAGS) @smegtris.lnk
+
+
+#
